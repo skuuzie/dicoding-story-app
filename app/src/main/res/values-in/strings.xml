@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Story App</string>
+
+    <string name="onboarding_title">Selamat datang di Dicoding Story App</string>
+    <string name="onboarding_text">Tempat berbagi perjuangan belajar sesama programmer Dicoding. Mau sharing Web Development, Mobile Development, foto kucing atau apapun itu bebas!</string>
+    <string name="explore">Eksplor</string>
+
+    <string name="login">Masuk</string>
+    <string name="register_here"><u>Belum punya akun? Daftar disini!</u></string>
+
+    <string name="enter_name">Masukkan nama anda</string>
+    <string name="enter_email">Masukkan email anda</string>
+    <string name="enter_password">Masukkan password anda</string>
+
+    <string name="input_password_error">Panjang password minimal 8 karakter.</string>
+    <string name="input_email_error">Tolong masukkan email yang benar.</string>
+    <string name="input_empty">Bagian ini tidak boleh kosong.</string>
+
+    <string name="login_title">Yuk masuk ke akun kamu!</string>
+    <string name="register">Daftar</string>
+    <string name="register_title">Yuk bikin akun baru!</string>
+
+    <string name="login_error">Login gagal. Alasan: %1s</string>
+    <string name="close">Tutup</string>
+
+    <string name="change_language">Ganti bahasa</string>
+    <string name="logout">Keluar dari akun</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="upload">Upload</string>
+
+    <string name="choose_picture">Silahkan pilih gambar terlebih dahulu.</string>
+    <string name="upload_error">Upload gagal. Alasan: %1s</string>
+    <string name="register_error">Pendaftaran gagal. Alasan: %1s</string>
+    <string name="upload_successful">Upload berhasil!</string>
+    <string name="empty_description">Deskripsi tidak boleh kosong.</string>
+
+    <string name="register_successful">Pendaftaran berhasil, silahkan masuk dengan akun yang telah dibuat!</string>
+
+    <string name="network_error">Gagal. Silahkan perika koneksi internet anda dan coba lagi.</string>
+
+    <string name="need_camera_permission">Anda harus mengizinkan penggunaan kamera untuk mengambil gambar.</string>
+
+    <string name="camerax_capture_error">Gagal mengambil gambar.</string>
+    <string name="camerax_init_error">Gagal membuka kamera.</string>
+
+    <string name="settings">Pengaturan</string>
+    <string name="story_feed">Beranda Story</string>
+    <string name="story_upload">Unggah Story</string>
+    <string name="story_detail">Detail Story</string>
+
+    <string name="logout_successful">Anda telah keluar dari akun.</string>
+    <string name="story_description">Katakan sesuatu!</string>
+    <string name="story_feed_empty">Whoops, tidak ada story yang dapat ditampilkan saat ini.</string>
+
+    <string name="retry">Coba lagi</string>
+
+    <string name="location">Lokasi</string>
+    <string name="need_location_permission">Anda harus mengizinkan penggunaan lokasi untuk mengunggah lokasi.</string>
+
+    <string name="error">Error</string>
+    <string name="location_generic_error">Gagal mendapatkan data lokasi, silahkan periksa kembali pengaturan Lokasi anda.</string>
+</resources>

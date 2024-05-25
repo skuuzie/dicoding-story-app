@@ -1,0 +1,9 @@
+{
+  "error": false,
+  "message": "success",
+  "loginResult": {
+    "userId": "user-aAmH27YrOngM2FST",
+    "name": "z",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLWFBbUgyN1lyT25nTTJGU1QiLCJpYXQiOjE3MTYyOTQxOTR9.NuxNIVagJFTrBrQUs_s3HYNqyMvkBFMSkDd99icjaAQ"
+  }
+}
