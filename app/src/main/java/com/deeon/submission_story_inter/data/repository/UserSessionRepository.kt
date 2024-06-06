@@ -9,8 +9,11 @@ import com.google.gson.Gson
 import kotlinx.coroutines.flow.first
 import retrofit2.HttpException
 import java.net.UnknownHostException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserSessionRepository(private val session: UserSessionPref) {
+@Singleton
+class UserSessionRepository @Inject constructor(private val session: UserSessionPref) {
 
     suspend fun getCurrentUser(): UserSession {
         return UserSession(

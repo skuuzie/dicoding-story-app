@@ -28,13 +28,13 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StoryUploadActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStoryUploadBinding
-    private val storyUploadViewModel: StoryUploadViewModel by viewModels {
-        StoryUploadViewModel.Factory
-    }
+    private val storyUploadViewModel: StoryUploadViewModel by viewModels()
 
     private var currentImageUri: Uri? = null
     private var currentUserToken: String? = null

@@ -15,14 +15,14 @@ import com.deeon.submission_story_inter.R
 import com.deeon.submission_story_inter.databinding.ActivitySettingsBinding
 import com.deeon.submission_story_inter.view.model.SettingsViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySettingsBinding
 
-    private val settingsViewModel: SettingsViewModel by viewModels {
-        SettingsViewModel.Factory
-    }
+    private val settingsViewModel: SettingsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()

@@ -2,7 +2,6 @@ package com.deeon.submission_story_inter.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.ViewGroup
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -19,8 +18,10 @@ import com.deeon.submission_story_inter.view.StoryUploadActivity.Companion.UPLOA
 import com.deeon.submission_story_inter.view.adapter.LoadingStateAdapter
 import com.deeon.submission_story_inter.view.adapter.StoryFeedAdapter
 import com.deeon.submission_story_inter.view.model.StoryFeedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class StoryFeedActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStoryFeedBinding
@@ -29,9 +30,7 @@ class StoryFeedActivity : AppCompatActivity() {
     private var currentUserToken: String? = null
     private var currentUserName: String? = null
 
-    private val storyFeedModel: StoryFeedViewModel by viewModels {
-        StoryFeedViewModel.Factory
-    }
+    private val storyFeedModel: StoryFeedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()

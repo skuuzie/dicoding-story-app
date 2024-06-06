@@ -5,14 +5,17 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
+import com.deeon.submission_story_inter.data.database.AppDatabase
 import com.deeon.submission_story_inter.data.database.RemoteKeys
-import com.deeon.submission_story_inter.data.database.StoryDatabase
 import com.deeon.submission_story_inter.data.remote.StoryDetail
 import com.deeon.submission_story_inter.data.remote.retrofit.DicodingApiService
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @OptIn(ExperimentalPagingApi::class)
-class StoryRemoteMediator(
-    private val database: StoryDatabase,
+@Singleton
+class StoryRemoteMediator @Inject constructor(
+    private val database: AppDatabase,
     private val apiService: DicodingApiService
 ) : RemoteMediator<Int, StoryDetail>() {
 

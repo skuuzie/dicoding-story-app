@@ -6,15 +6,20 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
 val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = "user_session")
 
-class UserSessionPref private constructor(private val dataStore: DataStore<Preferences>) {
+@Singleton
+class UserSessionPref @Inject constructor(@ApplicationContext appContext: Context) {
     private val USER_ID = stringPreferencesKey("user_id")
     private val USER_NAME = stringPreferencesKey("user_name")
     private val USER_TOKEN = stringPreferencesKey("user_token")
+    private val dataStore = appContext.datastore
 
     val userId: Flow<String> = this.dataStore.data
         .map { session ->
@@ -44,18 +49,6 @@ class UserSessionPref private constructor(private val dataStore: DataStore<Prefe
             session[USER_ID] = ""
             session[USER_NAME] = ""
             session[USER_TOKEN] = ""
-        }
-    }
-
-    companion object {
-        private var INSTANCE: UserSessionPref? = null
-
-        fun getInstance(dataStore: DataStore<Preferences>): UserSessionPref {
-            return INSTANCE ?: synchronized(this) {
-                val instance = UserSessionPref(dataStore)
-                INSTANCE = instance
-                instance
-            }
         }
     }
 }

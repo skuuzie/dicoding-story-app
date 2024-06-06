@@ -14,14 +14,14 @@ import androidx.core.view.updateLayoutParams
 import com.deeon.submission_story_inter.R
 import com.deeon.submission_story_inter.databinding.ActivityLoginBinding
 import com.deeon.submission_story_inter.view.model.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
-    private val loginViewModel: LoginViewModel by viewModels {
-        LoginViewModel.Factory
-    }
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()

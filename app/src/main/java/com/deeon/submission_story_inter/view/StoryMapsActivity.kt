@@ -22,7 +22,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StoryMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityStoryMapsBinding
@@ -32,9 +34,7 @@ class StoryMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private var currentUserToken: String? = null
 
-    private val storyMapsModel: StoryMapsViewModel by viewModels {
-        StoryMapsViewModel.Factory
-    }
+    private val storyMapsModel: StoryMapsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()

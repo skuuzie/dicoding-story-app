@@ -12,14 +12,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import com.deeon.submission_story_inter.databinding.ActivityOnboardingBinding
 import com.deeon.submission_story_inter.view.model.OnboardingViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnboardingBinding
 
-    private val onboardingViewModel: OnboardingViewModel by viewModels {
-        OnboardingViewModel.Factory
-    }
+    private val onboardingViewModel: OnboardingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()

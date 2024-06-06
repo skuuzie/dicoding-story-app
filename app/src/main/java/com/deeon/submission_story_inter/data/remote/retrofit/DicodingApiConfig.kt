@@ -8,19 +8,24 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object DicodingApiConfig {
     var BASE_URL = "https://story-api.dicoding.dev/v1/"
+
+    fun getAuthInterceptor(token: String): Interceptor {
+        return Interceptor { chain ->
+            val req = chain.request()
+            val requestHeaders = req.newBuilder()
+                .addHeader("Authorization", "Bearer $token")
+                .build()
+            chain.proceed(requestHeaders)
+        }
+    }
+
     fun getApiService(token: String?): DicodingApiService {
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
         if (!token.isNullOrEmpty()) {
-            val authInterceptor = Interceptor { chain ->
-                val req = chain.request()
-                val requestHeaders = req.newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
-                chain.proceed(requestHeaders)
-            }
+            val authInterceptor = getAuthInterceptor(token)
             client.addInterceptor(authInterceptor)
         }
         val retrofit = Retrofit.Builder()

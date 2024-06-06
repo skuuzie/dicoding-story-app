@@ -6,7 +6,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.deeon.submission_story_inter.data.database.StoryDatabase
+import com.deeon.submission_story_inter.data.database.AppDatabase
 import com.deeon.submission_story_inter.data.remote.LoginResponse
 import com.deeon.submission_story_inter.data.remote.StoryDetail
 import com.deeon.submission_story_inter.data.remote.retrofit.DicodingApiConfig
@@ -14,6 +14,7 @@ import com.deeon.submission_story_inter.util.NetworkResult
 import com.deeon.submission_story_inter.util.Utils.reduceFileImage
 import com.deeon.submission_story_inter.util.Utils.uriToFile
 import com.google.gson.Gson
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -21,11 +22,13 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.HttpException
 import java.net.UnknownHostException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-
-class StoryRepository(
-    private val context: Context,
-    private val storyDatabase: StoryDatabase
+@Singleton
+class StoryRepository @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val database: AppDatabase
 ) {
 
     @OptIn(ExperimentalPagingApi::class)
@@ -37,9 +40,9 @@ class StoryRepository(
             config = PagingConfig(
                 pageSize = 5
             ),
-            remoteMediator = StoryRemoteMediator(storyDatabase, apiService),
+            remoteMediator = StoryRemoteMediator(database, apiService),
             pagingSourceFactory = {
-                storyDatabase.storyDao().getAllStory()
+                database.storyDao().getAllStory()
             }
         ).flow
     }

@@ -13,14 +13,14 @@ import com.deeon.submission_story_inter.R
 import com.deeon.submission_story_inter.databinding.ActivityRegisterBinding
 import com.deeon.submission_story_inter.view.model.RegisterViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
 
-    private val registerViewModel: RegisterViewModel by viewModels {
-        RegisterViewModel.Factory
-    }
+    private val registerViewModel: RegisterViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
