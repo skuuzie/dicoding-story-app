@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -102,6 +104,7 @@ dependencies {
     implementation("androidx.test.espresso:espresso-idling-resource:3.5.1")
     androidTestImplementation("androidx.test.espresso:espresso-intents:3.5.1")
 
-    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
-    androidTestImplementation("com.squareup.okhttp3:okhttp-tls:4.9.3")
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 }
